@@ -1,0 +1,87 @@
+/* ----------------------------------- */
+/* CSS para mostrar apuntes JavaScript */
+/* ----------------------------------- */
+
+
+/* CSS reset - obligatorio! */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* Nuestro CSS */
+body {
+  padding: 10px;
+  background-color: bisque;
+}
+.title {
+  padding: 20px;
+  color: white;
+  background-color:#205060;
+  border-radius: 10px;
+}
+
+h3 {
+  margin-top:10px;
+  padding:20px;
+  color:white;
+  background-color: cadetblue;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.notes {
+  padding: 12px;
+  background-color: aliceblue;
+}
+.notes p {
+  margin-bottom: 8px;
+}
+.code {
+  padding: 12px;
+  margin-top: 8px;
+
+  background-color: white;
+  border: 2px solid grey;
+
+  /* Mantener el formato del editor*/
+  white-space: pre;
+
+  /* Letra para ver codigo JavaScript */
+  font-family: monospace;
+}
+
+.code::before {
+  content: "<script>\A";
+  margin-top: 8px;
+  color: blue;
+}
+.code::after {
+  content: "\A</script>";
+  margin-top: 8px;
+  color: blue;
+}
+
+comment {
+  color: green;
+  font-family: monospace;
+}
+
+
+.html {
+  padding: 12px;
+  margin-top: 8px;
+
+  background-color: white;
+  border: 2px solid grey;
+
+  /* Mantener el formato del editor*/
+  white-space: pre;
+
+  /* Letra para ver codigo JavaScript */
+  font-family: monospace;
+}
+

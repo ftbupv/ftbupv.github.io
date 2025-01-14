@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Seccion "head" contiene informacion sobre la pagina -->
+<head>
+    <!-- Titulo que aparece en la pestaña del navegador -->
+    <title>Javascript - Efectos Javascript</title>
+
+    <!-- Definir la codificación de el archivo de texto (los accentos)-->
+    <meta charset="utf8">
+
+    <!-- Definir un icono para está página-->
+    <link rel="icon" href="./images/icon.png">
+
+    <!-- Decir al navegador que un pixel sea un pixel -->
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+    <!-- Incluir los estilos de la pagina (archivo "css") -->
+    <link rel="stylesheet" href="css/javascript.css">
+    <link rel="stylesheet" href="css/polaroid.css">
+    <link rel="stylesheet" href="css/effects.css">
+
+    <!-- Incluir nustros scripts, obligario poner "defer" -->
+    <script src="./js/gallery.js" defer></script>
+    <script src="./js/script.js" defer></script>
+
+    <!-- Refrescar la página cada tres segundos -->
+    <meta http-equiv="refresh" content="5">
+</head>
+
+
+<!-- Seccion "body" tiene la parte visible de la página -->
+<body>
+<div class="title">
+    <h1>JavaScript - Efectos</h1>
+</div>
+
+<!-- Plantilla para un polaroid -->
+<template id="polaroid">
+    <div class="polaroid">
+        <img>
+        <div class="text"></div>
+    </div>
+</template>
+
+<div id="gallery">
+</div>
+
+
+<h3>Primer paso - Anadir animacion CSS a los polaroids</h3>
+<div class="notes">
+    <p>Creamos un efecto de aparición para nuestros polaroides</p>
+    <p>En este caso, desplazmos los polaroides y cambiamos su opacidad.</p>
+<div class="html">
+&lt;style&gt;
+<comment>/* Los keyframes de la animación */</comment>
+@keyframes appear {
+    from {  top: 32px; left: 100px; opacity: 0.0; }
+    to   {  top: 0px;  left: 0px;   opacity: 1.0; }
+}
+
+<comment>/* Aplicados a los polaroides */</comment>
+.polaroid {
+    position: relative;
+    opacity: 0.0;
+    animation-name: appear;
+    animation-duration: 1s;
+
+    <comment>/* Cuando termina la animacion, quedar con los valores finales */</comment>
+    <comment>/* Sin esta linea, opacity volvera a 0.0 cuando termina la animación */</comment>
+    animation-fill-mode: forwards;
+}
+&lt;/style&gt; 
+</div>
+</div>
+
+<h3>Segundo paso - Usar Javascript para poner un retraso diferente a cada polaroide</h3>
+<div class="notes">
+    <p>Buscamos los polaroides dentro de la página y usamos un bucle para modificarlos</p>
+<div class="code">
+<comment>// Buscar los polaroides</comment>
+let polaroids = document.querySelectorAll(".polaroid");
+
+<comment>// Mensaje de paranoia en la consola</comment>
+<comment>// Estos mensajes pueden evitar muchos fallos del tipo no incluir archivos correctos, etc.</comment>
+console.log("Hay "+polaroids.length+" polaroids");
+
+<comment>// Retraso inicial (el primer polaroid)</comment>
+let retraso = 0;
+
+<comment>// Bucle para modificar todos los polaroides)</comment>
+for (let i=0; i&lt;polaroids.length; i++) {
+    <comment>// Aplicar el retraso a polaroide con indice 'i'</comment>
+    polaroids[i].style.animationDelay = retraso+"s";
+
+    <comment>// Cada polaroid se retrasa un poco mas</comment>
+    retraso = retraso + 0.1;
+}
+</div>
+</div>
+
+
+</body>
+</html>

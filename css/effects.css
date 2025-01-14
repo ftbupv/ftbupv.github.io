@@ -1,0 +1,16 @@
+@keyframes appear {
+    from {  top: 32px; left: 100px; opacity: 0.0; }
+    to   {  top: 0px;  left: 0px;   opacity: 1.0; }
+}
+
+.polaroid {
+    position: relative;
+    opacity: 0.0;
+    animation-name: appear;
+    animation-duration: 1s;
+
+    /* Cuando termina la animacion, quedar con los valores finales */
+    /* Sin esta linea, opacity volvera a 0.0 cuando termina la animación */
+    animation-fill-mode: forwards;
+}
+

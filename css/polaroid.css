@@ -1,0 +1,73 @@
+#gallery {
+    display: flex;
+
+    /* Mantener todas las cosas en una sola linea o no */
+    flex-wrap: wrap;
+
+    /* Direccion de las cosas */
+    flex-direction: row;
+
+    /* Alinieacion de las cosas */
+    justify-content:space-around;
+
+    padding: 20px;
+    background-color: goldenrod;
+
+    /* Cortar lo que sale fuera para evitar
+       la barra de desplazamiento horizontal */
+    overflow: hidden;
+}
+.polaroid {
+    width: 220px;
+    margin: 10px;
+    padding: 10px;
+    /* colores */
+    color: black;
+    background-color: white;
+    
+    /* Alinear mi contenido (centrado) */
+    text-align: center;
+
+    /* Un poco de sombra en cada uno */
+    box-shadow: 3px 3px 12px grey;
+
+    /* Que cualquier efecto tarda un segundo en aplicarse */
+    transition-duration: 1s;
+}
+/* Quitamos la rotacion cuando pasamos el raton encima */
+.polaroid:hover {
+    transform: rotate(0deg) !important;
+    box-shadow: 15px 15px 12px black;
+}
+
+.polaroid img {
+    /* Ponemos un tamaño fijo a la foto */
+    width: 200px;
+    height: 200px;
+
+    /* Este estilo adapta la imagen para cubrir
+       todo el espacio disponible */
+    object-fit: cover;
+
+    /* Tambien podemos ajustar la posicion de la
+       imagen en elementos individuales de la
+       página con "object-position" en el HTML */
+}
+
+/* Importar el archivo con nuestra letra y
+   poner un nombre (hemos puesto "miletra" */
+   @font-face {
+    font-family: miletra;
+    src: url("../letras/PermanentMarker-Regular.ttf");
+}
+
+.polaroid .text {
+    /* Crear un poco de espacio entre la foto
+       y la letra usando "margin" */
+    margin-top: 5px;
+
+    /* Aplicar nuestra letra */
+    font-family: miletra;
+    font-size: 24px;
+}
+
